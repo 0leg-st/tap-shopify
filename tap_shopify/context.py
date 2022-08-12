@@ -21,7 +21,7 @@ class Context():
     def is_selected(cls, stream_name):
         stream = cls.get_catalog_entry(stream_name)
         stream_metadata = metadata.to_map(stream['metadata'])
-        return metadata.get(stream_metadata, (), 'selected')
+        return stream['schema'].get('selected',False)
 
     @classmethod
     def get_results_per_page(cls, default_results_per_page):
