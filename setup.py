@@ -11,8 +11,9 @@ setup(
     python_requires='>=3.5.2',
     py_modules=["tap_shopify"],
     install_requires=[
-        "shopifyapi @ git+https://github.com/0leg-st/shopify_python_api@9ff52b240ee912b7a2cba5af5da9aa6697d612f3#egg=shopifyapi",
-        "singer-python"
+        "shopifyapi @ git+https://github.com/uptilab2/shopify_python_api@f3f199ef477915e85192cffb62029871f6097dd1#egg=shopifyapi",
+        "singer-python",
+        "singer-tap-tester"
     ],
     extras_require={
         'dev': [

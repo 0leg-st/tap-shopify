@@ -176,7 +176,6 @@ def sync():
                 rec = transformer.transform({**rec, **sdc_fields},
                                             record_schema,
                                             record_metadata)
-                rec = clean_record(rec)
                 singer.write_record(stream_id,
                                     rec,
                                     time_extracted=extraction_time)
@@ -189,13 +188,6 @@ def sync():
     for stream_id, stream_count in Context.counts.items():
         LOGGER.info('%s: %d', stream_id, stream_count)
     LOGGER.info('----------------------')
-
-
-def clean_record(rec):
-    for key in rec:
-        if rec[key] is None:
-            rec[key] = ''
-    return rec
 
 
 @utils.handle_top_exception(LOGGER)
